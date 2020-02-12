@@ -3663,6 +3663,9 @@ skills["HeraldOfAgony"] = {
 		["scorpion_minion_maximum_added_physical_damage"] = {
 			mod("MinionModifier", "LIST", { type = "HeraldOfAgonySpiderPlated", mod = mod("PhysicalMax", "BASE", nil, 0, 0, { type = "Multiplier", actor = "parent", var = "VirulenceStack" })})
 		},
+		["base_number_of_herald_scorpions_allowed"] = {
+			mod("ActiveHeraldOfAgonyLimit", "BASE", nil)
+		},
 	},
 	baseFlags = {
 		cast = true,

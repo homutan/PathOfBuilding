@@ -454,6 +454,7 @@ minions["HeraldOfAgonySpiderPlated"] = {
 	attackRange = 12,
 	accuracy = 3.4,
 	weaponType1 = "One Handed Sword",
+	limit = "ActiveHeraldOfAgonyLimit",
 	skillList = {
 		"HeraldOfAgonyMinionMortar",
 		"HeraldOfAgonyMinionTailSpike",
@@ -481,6 +482,7 @@ minions["AxisEliteSoldierHeraldOfLight"] = {
 	attackRange = 12,
 	accuracy = 3.4,
 	weaponType1 = "Staff",
+	limit = "ActiveSentinelOfPurityLimit",
 	skillList = {
 		"Melee",
 		"HeraldOfLightMinionSlam",

@@ -778,6 +778,12 @@ local modTagList = {
 	["for each summoned golem"] = { tag = { type = "PerStat", stat = "ActiveGolemLimit" } },
 	["for each golem you have summoned"] = { tag = { type = "PerStat", stat = "ActiveGolemLimit" } },
 	["per summoned golem"] = { tag = { type = "PerStat", stat = "ActiveGolemLimit" } },
+	["per minion, up to %+?(%d+)%%"] = function(num) return { tag = { type = "PerStat", stat = "TotalMinionLimit", limit = num, limitTotal = true }} end,
+	["per summoned skeleton"] = { tag = { type = "PerStat", stat = "ActiveSkeletonLimit" } },
+	["per summoned raging spirit"] = { tag = { type = "PerStat", stat = "ActiveRagingSpiritLimit" } },
+	["for each raised zombie"] = { tag = { type = "PerStat", stat = "ActiveZombieLimit" } },
+	["per raised zombie"] = { tag = { type = "PerStat", stat = "ActiveZombieLimit" } },
+	["per raised spectre"] = { tag = { type = "PerStat", stat = "ActiveSpectreLimit" } },
 	-- Stat conditions
 	["with (%d+) or more strength"] = function(num) return { tag = { type = "StatThreshold", stat = "Str", threshold = num } } end,
 	["with at least (%d+) strength"] = function(num) return { tag = { type = "StatThreshold", stat = "Str", threshold = num } } end,
@@ -972,7 +978,7 @@ local modTagList = {
 	["while you do not have resolute technique"] = { tag = { type = "Condition", var = "HaveResoluteTechnique", neg = true } },
 	["while you have avatar of fire"] = { tag = { type = "Condition", var = "HaveAvatarOfFire" } },
 	["while you do not have avatar of fire"] = { tag = { type = "Condition", var = "HaveAvatarOfFire", neg = true } },
-	["if you have a summoned golem"] = { tag = { type = "Condition", varList = { "HavePhysicalGolem", "HaveLightningGolem", "HaveColdGolem", "HaveFireGolem", "HaveChaosGolem", "HaveCarrionGolem" } } },
+	["while you have a summoned golem"] = { tag = { type = "Condition", varList = { "HavePhysicalGolem", "HaveLightningGolem", "HaveColdGolem", "HaveFireGolem", "HaveChaosGolem", "HaveCarrionGolem" } } },
 	-- Enemy status conditions
 	["at close range"] = { tag = { type = "Condition", var = "AtCloseRange" }, flags = ModFlag.Hit },
 	["against rare and unique enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }, keywordFlags = KeywordFlag.Hit },

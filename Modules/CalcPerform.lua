@@ -517,17 +517,6 @@ function calcs.perform(env)
 		env.player.itemList["Weapon 2"] = nil
 	end
 
-	for _, activeSkill in ipairs(env.player.activeSkillList) do
-		if activeSkill.skillFlags.golem then
-			local limit = activeSkill.skillModList:Sum("BASE", nil, "ActiveGolemLimit")
-			output.ActiveGolemLimit = m_max(limit, output.ActiveGolemLimit or 0)
-		end
-		if activeSkill.skillFlags.totem then
-			local limit = activeSkill.skillModList:Sum("BASE", nil, "ActiveTotemLimit")
-			output.ActiveTotemLimit = m_max(limit, output.ActiveTotemLimit or 0)
-		end
-	end
-
 	local breakdown
 	if env.mode == "CALCS" then
 		-- Initialise breakdown module
@@ -644,6 +633,41 @@ function calcs.perform(env)
 			env.minion.modDB:AddList(env.spec.tree.keystoneMap[name].modList)
 		end
 		doActorAttribsPoolsConditions(env, env.minion)
+	end
+
+	-- Minion counting after attributes calculation (The Baron / Iron Commander? handling)
+	for _, activeSkill in ipairs(env.player.activeSkillList) do
+		if activeSkill.skillFlags.golem then
+			local limit = activeSkill.skillModList:Sum("BASE", nil, "ActiveGolemLimit")
+			output.ActiveGolemLimit = m_max(limit, output.ActiveGolemLimit or 0)
+		end
+		if activeSkill.skillFlags.totem then
+			local limit = activeSkill.skillModList:Sum("BASE", nil, "ActiveTotemLimit")
+			output.ActiveTotemLimit = m_max(limit, output.ActiveTotemLimit or 0)
+		end
+		if activeSkill.skillFlags.spectre then
+			local limit = activeSkill.skillModList:Sum("BASE", nil, "ActiveSpectreLimit")
+			output.ActiveSpectreLimit = m_max(limit, output.ActiveSpectreLimit or 0)
+		end
+		if activeSkill.skillCfg.skillName == "Summon Raging Spirit" then
+			local limit = activeSkill.skillModList:Sum("BASE", nil, "ActiveRagingSpiritLimit")
+			output.ActiveRagingSpiritLimit = m_max(limit, output.ActiveRagingSpiritLimit or 0)
+		end
+		if activeSkill.skillCfg.skillName == "Summon Skeleton" then
+			local limit = activeSkill.skillModList:Sum("BASE", nil, "ActiveSkeletonLimit")
+			output.ActiveSkeletonLimit = m_max(limit, output.ActiveSkeletonLimit or 0)
+		end
+		if activeSkill.skillCfg.skillName == "Raise Zombie" then
+			local limit = activeSkill.skillModList:Sum("BASE", nil, "ActiveZombieLimit")
+			output.ActiveZombieLimit = m_max(limit, output.ActiveZombieLimit or 0)
+		end
+		if activeSkill.skillCfg.skillName == "Animate Guardian" then
+			output.TotalMinionLimit = (output.TotalMinionLimit or 0) + 1
+		end
+
+		if activeSkill.skillFlags.minion and activeSkill.minion and activeSkill.minion.minionData.limit then
+			output.TotalMinionLimit = (output.TotalMinionLimit or 0) + m_floor(calcLib.val(activeSkill.skillModList, activeSkill.minion.minionData.limit, skillCfg))
+		end
 	end
 
 	-- Process attribute requirements
