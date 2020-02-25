@@ -52,7 +52,7 @@ c["Minions have 10% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name=
 c["Channelling Skills have -3 to Total Mana Cost"]={{[1]={[1]={skillType=58,type="SkillType"},flags=0,keywordFlags=0,name="ManaCost",type="BASE",value=-3}},nil}
 c["50% chance to inflict Bleeding on Critical Strike with Attacks"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=65536,name="BleedChance",type="BASE",value=50}},nil}
 c["20% chance to Maim on Hit"]={{}," to Maim on Hit "}
-c["20% increased Damage while you have a Summoned Golem 30% increased Effect of Buffs granted by your Golems Golems have 15% increased Maximum Life +1 to maximum number of Golems"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=20}},"  while you have a Summoned  30% increased Effect of Buffs granted by your Golems Golems have 15% increased Maximum Life +1 to maximum number of Golems "}
+c["20% increased Damage while you have a Summoned Golem"]={{[1]={[1]={type="Condition",varList={[1]="HavePhysicalGolem",[2]="HaveLightningGolem",[3]="HaveColdGolem",[4]="HaveFireGolem",[5]="HaveChaosGolem",[6]="HaveCarrionGolem"}},flags=0,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
 c["10% chance to gain an Endurance Charge when you Block Attack Skills deal 20% increased Damage with Ailments while Dual Wielding 10% chance to gain a Frenzy Charge when you Block"]={{[1]={[1]={type="Condition",var="DualWielding"},[2]={skillName="Frenzy",type="SkillName"},flags=2048,keywordFlags=0,name="Damage",type="BASE",value=10}}," to gain an Endurance Charge when you Block Attack Skills deal 20% increased    10% chance to gain aCharge when you Block "}
 c["20% increased Flask Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="FlaskRecoveryRate",type="INC",value=20}},nil}
 c["+5% to maximum Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResistMax",type="BASE",value=5}},nil}
@@ -1073,7 +1073,6 @@ c["2% increased Spell Damage per 100 Maximum Life"]={{[1]={[1]={div=100,stat="Li
 c["50% reduced Mana Cost of Raise Spectre"]={{[1]={[1]={skillName="Raise Spectre",type="SkillName"},flags=0,keywordFlags=0,name="ManaCost",type="INC",value=-50}},nil}
 c["Adds 9 to 14 Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=9},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=14}},nil}
 c["Golems have 38% increased Cooldown Recovery Speed"]={{[1]={[1]={skillType=62,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=38}}}},nil}
-c["20% increased Damage while you have a Summoned Golem 30% increased Effect of Buffs granted by your Golems Golems have 15% increased Maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=20}},"  while you have a Summoned  30% increased Effect of Buffs granted by your Golems Golems have 15% increased Maximum Life "}
 c["3% reduced Mana Cost of Skills"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="INC",value=-3}},nil}
 c["13% increased Attack Damage while holding a Shield"]={{[1]={[1]={type="Condition",var="UsingShield"},flags=1,keywordFlags=0,name="Damage",type="INC",value=13}},nil}
 c["16% increased Elemental Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=16}},nil}
@@ -2185,7 +2184,6 @@ c["10% chance to gain a Frenzy, Power or Endurance Charge on Kill Conduit"]={{},
 c["245% increased Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EvasionAndEnergyShield",type="INC",value=245}},nil}
 c["Cannot be Stunned by Spells if your other Ring is a Shaper Item"]={nil,"Cannot be Stunned by Spells if your other Ring is a Shaper Item "}
 c["+16 to maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=16}},nil}
-c["20% increased Damage while you have a Summoned Golem 30% increased Effect of Buffs granted by your Golems"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=20}},"  while you have a Summoned  30% increased Effect of Buffs granted by your Golems "}
 c["-10% to Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=-10}},nil}
 c["30% of Lightning Damage is taken from Mana before Life when Hit"]={{[1]={flags=0,keywordFlags=0,name="LightningDamage",type="BASE",value=30}},"  is taken from Mana before Life when Hit "}
 c["+20% chance to be Shocked 30% of Lightning Damage is taken from Mana before Life when Hit"]={{[1]={flags=0,keywordFlags=0,name="LightningDamage",type="BASE",value=20}}," to be Shocked 30% of  is taken from Mana before Life when Hit "}
@@ -6224,7 +6222,6 @@ c["1% of Physical Attack Damage Leeched as Life"]={{[1]={flags=1,keywordFlags=0,
 c["10% chance to gain Unholy Might on block for 3 seconds +5% Chance to Block Attack Damage while wielding a Staff"]={{[1]={[1]={type="Condition",var="UsingStaff"},flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=10}}," to gain Unholy Might on block for 3 seconds +5% Chance   "}
 c["Can Allocate Passives from the Shadow's starting point"]={{},nil}
 c["Gain Arcane Surge when you or your Totems Hit an Enemy with a Spell 20% increased Spell Damage while you have Arcane Surge"]={nil,"Gain Arcane Surge when you or your Totems Hit an Enemy with a Spell 20% increased Spell Damage while you have Arcane Surge "}
-c["20% increased Damage while you have a Summoned Golem"]={{[1]={[1]={type="Condition",varList={[1]="HavePhysicalGolem",[2]="HaveLightningGolem",[3]="HaveColdGolem",[4]="HaveFireGolem",[5]="HaveChaosGolem",[6]="HaveCarrionGolem"}},flags=0,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
 c["10% increased Spell Damage while Dual Wielding"]={{[1]={[1]={type="Condition",var="DualWielding"},flags=2,keywordFlags=0,name="Damage",type="INC",value=10}},nil}
 c["30% chance to Avoid being Frozen"]={{[1]={flags=0,keywordFlags=0,name="AvoidFrozen",type="BASE",value=30}},nil}
 c["+24 to Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Int",type="BASE",value=24}},nil}
