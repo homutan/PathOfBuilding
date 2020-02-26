@@ -731,7 +731,7 @@ function calcs.perform(env)
 				-- Also nothing :/
 			elseif buff.type == "Buff" then
 				if env.mode_buffs and (not activeSkill.skillFlags.totem or buff.allowTotemBuff) then
-					local skillCfg = buff.activeSkillBuff and skillCfg
+					local skillCfg = (buff.activeSkillBuff and skillCfg) or { skillName = buff.name }
 					local modStore = buff.activeSkillBuff and skillModList or modDB
 				 	if not buff.applyNotPlayer then
 						activeSkill.buffSkill = true
